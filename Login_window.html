@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="icon" href="logo_canteen.png">
+     <link rel="stylesheet" href="login_window.css">
+     <link rel="stylesheet" href="new_index.css">
+     <title>Signup</title>
+     
+    <script>
+        function redirectToCustomer(){
+        document.getElementById("btn1").style.display = "none";
+        document.getElementById("btn2").style.display = "none";
+        document.getElementById("no_account").style.display = "none";
+        document.getElementById("no_account").style.display = "none";
+        document.getElementById("field_customer").style.display = "block";
+        document.getElementById('phn_sign').style.display = 'none'; 
+
+    }
+      function redirectToCanteenOwner(){
+        document.getElementById('phn_sign').style.display = 'none'; 
+
+        document.getElementById("btn1").style.display = "none";
+          document.getElementById("btn2").style.display = "none";
+          document.getElementById("no_account").style.display = "none";
+          document.getElementById("no_account").style.display = "none";
+          document.getElementById("field_owner").style.display = "block";
+      }
+    </script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+</head>
+<body id="mybody">
+    <nav class="navbar navbar-dark bg-dark" style="position: fixed;top:0px;width: 100%;z-index: 1;overflow: visible;">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist" style="z-index: 1;">
+          <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="index.html" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+          <a class="nav-item nav-link active" id="nav-contact-tab" data-toggle="tab" href="Login_window.html" role="tab" aria-controls="nav-contact" aria-selected="false">Login</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" role="tab" aria-controls="nav-contact" aria-selected="false" style="color: #007BFF;cursor: pointer;" href="contact.html">Contact Us</a>
+        </div>
+
+       
+        <h1 style="float: right;font-family:cursive;color: white;margin-right: 2mm;font-size: 50px;" id="Dine_desk_contact">TasteBytes</h1>
+       
+    </nav>
+
+
+    <br><br><br>  
+   <span>
+       <button type="button" onclick="redirectToCustomer();"  id="btn1" style="display: none;">Login as a customer</button>
+       <button type="button" onclick="redirectToCanteenOwner();" id="btn2" style="margin-left: 40%;">Continue to Login....</button>
+       <div class="card" style="width: 18rem;margin-left: 35% !important;" id="phn_sign" >
+        <div class="card-body">
+          <h5 class="card-title">Not Signed up yet?</h5>
+          <p class="card-text">Signup on our website to take advantages of great features.
+          </p>
+          <a href="sign_up_window.html" class="card-link" style="margin-left: 2cm;"><b> Sign-up</b></a>
+        
+        </div>
+      </div>
+    </span>
+
+<fieldset style="background: url(wallPAPER.jpg) ;margin-top: 3cm;margin-left: 10cm;height: 280px;width: 590px;background-position-x: 0.4cm;background-position-y: 10cm;display: none;" class="rounded" id="field_owner">
+    <form id="contactForm" action="recipe_page.html" style="margin-left: 0.7cm;margin-top: 0.7cm;" method="post">
+        <div class="form-group">
+          <label for="email" style="color: white;margin-left: 2mm;">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" style="width: 500px;margin-left: 2mm;">
+          <small id="emailHelp" class="form-text text-muted" style="margin-left: 2mm;color: rgb(255, 255, 255) !important;">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="Pass" style="margin-left: 2mm;color: white">Password</label>
+          <input type="password" class="form-control" id="Pass" placeholder="Password" style="width: 500px;margin-left: 2mm;" required>
+        </div>
+      
+        <button type="submit" class="btn btn-primary" style="margin-left: 5cm;" id="signin" title="Click to sign-up" value="submit">sign in</button>
+        
+        <a href="Login_window.html" title="Click to go back to login page" class="btn btn-primary" style="margin-left: 5mm;">Back</a>
+    </form>
+</fieldset> 
+       
+
+    
+
+
+    <fieldset id="no_account" style="margin-left: 36.8% ;background-color: rgb(190, 211, 204);">
+   <p style="text-align: center;font-size: 20px;justify-content: center;">Don't have an account yet?</p> 
+   <a href="sign_up_window.html"> <button type="button" style="margin-bottom: 2mm;text-align: center;justify-content: center;">Sign up</button></a>   
+       
+
+</form></div></fieldset>
+        <h1 id="secretCode" style="text-align: center;">Authentication Complete</h1>
+       <a href="#"> <h1 style="font-size: 20px; margin-top: 7cm;margin-left: 520px;background-color: aquamarine;color: rgb(202, 33, 33);background: none;display: none;text-decoration: underline;" id="update_status" >Update your Canteen Status !</h1>
+       </a>
+
+       <a href="canteen_Status.html"> <h1 class="rounded" style="color:white;text-decoration: none;text-align: center;" id="view_status" >View Canteen Status</h1>
+       </a>
+
+
+
+
+
+
+
+
+<script type="module">
+           document.getElementById("field_owner").addEventListener('submit',(event)=>{
+            event.preventDefault()
+           })
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+            import { getDatabase, ref, get,set,child, update } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+            import { getAuth,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyBf_inD4Hqb2zqkmCuha69YEEgZ0EvSdDI",
+            authDomain: "canteen-live-status-65e71.firebaseapp.com",
+             databaseURL: "https://canteen-live-status-65e71-default-rtdb.firebaseio.com",
+            projectId: "canteen-live-status-65e71",
+            storageBucket: "canteen-live-status-65e71.appspot.com",
+            messagingSenderId: "427128725985",
+            appId: "1:427128725985:web:161d9f41d3e126af35b2a0",
+            measurementId: "G-YH01SPNTT2"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const database = getDatabase(app);
+            const auth= getAuth();
+            const updating_stats = document.getElementById('updating_stats');
+            const letsSignOut = document.getElementById('signOut');
+            const authform = document.getElementById('field_owner');
+            const secretCode = document.getElementById('secretCode');
+            const fieldUP = document.getElementById('field');
+            const update_status = document.getElementById("update_status");
+            const view_status = document.getElementById("view_status");
+            // const register_hide = document.getElementById('nav_btn2');
+            // const nav_btn1 = document.getElementById('nav_btn1');    
+            // const field_customer = document.getElementById('field_customer');                   
+            // const phn_sign = document.getElementById('phn_sign');
+ 
+// signin_c.addEventListener('click', (e)=>{
+//     var email__ = document.getElementById('email2').value;
+//     var Pass__ = document.getElementById('Pass2').value;
+   
+//     signInWithEmailAndPassword(auth, email__, Pass__)
+//   .then((userCredential) => { 
+//     // Signed in 
+//     const user = userCredential.user;
+//      alert('WeLCOME ' + email__);
+//      secretCode.style.display= 'block';
+//      document.getElementById('viewstatus').style.display = 'block';
+      
+//          // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     alert(errorCode + errorMessage);
+// })}
+// )
+
+signin.addEventListener('click', (e)=>{
+    var email__ = document.getElementById('email').value;
+    var Pass__ = document.getElementById('Pass').value;
+   
+    signInWithEmailAndPassword(auth, email__, Pass__)
+  .then((userCredential) => { 
+    // Signed in 
+    const user = userCredential.user;
+     alert('WeLCOME ' + email__);
+     window.location.href = "recipe_page.html";
+         // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorCode + errorMessage);
+})}
+)
+
+const dbRef = ref(getDatabase());
+
+function checking() {get(child(dbRef, `users/` + document.getElementById('user_name').value) + "/email").then((snapshot) => {
+  if(snapshot.val()==document.getElementById('updating_email').value){
+   console.log("correct email id");
+  }
+  else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error("error_cateen_name_Wala");
+});
+}
+function UpdateData(){
+    
+    update(ref(database, "users/" + document.getElementById('user_name').value ),{
+
+       status:  document.getElementById('new_status').value,  
+    })
+    .then(()=>{
+        alert("data updated successfully");
+        document.getElementById('updating_stats').style.display = 'none';
+    document.getElementById('viewstatus').style.display= 'block';
+
+    })
+    .catch((error)=>{
+        alert("please try again" + "error :" + errorCode);
+    });
+}
+
+update_me.addEventListener('click', checking);
+update_me.addEventListener('click', UpdateData);
+
+
+
+document.getElementById('btn_update').addEventListener('click', (e)=>{
+    document.getElementById("btn_update").style.display = 'none';
+    document.getElementById("reg_update").style.display = 'none';
+    document.getElementById("secretCode").style.display = 'none';
+    document.getElementById('updating_stats').style.display= 'block';
+    document.getElementById('updating_stats').style.marginTop= '4cm';
+
+  
+
+})
+
+</script>
+
+<div><h1></h1></div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+z<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" href="logo_canteen.png">
+    <link rel="stylesheet" href="new_index.css">
+    <!-- <link rel="stylesheet" href="signup_window.css"> -->
+
+    <title>Signup</title>
+
+</head>
+<div id="con">
+<body id="mybody" style="background-color: lightgray;">
+    <nav class="navbar navbar-dark bg-dark" style="position: fixed;top:0px;width: 100%;z-index: 1;overflow: visible;">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist" style="z-index: 1;">
+          <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="index.html" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+          <a href="canteen_Status.html" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"  role="tab" aria-controls="nav-profile" aria-selected="false">View canteen Status</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="Login_window.html" role="tab" aria-controls="nav-contact" aria-selected="false">Login</a>
+          <a class="nav-item nav-link active" id="nav-contact-tab" data-toggle="tab" href="sign_up_window.html" role="tab" aria-controls="nav-contact" aria-selected="false">Sign-up</a>
+          <a href="contact.html" class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" role="tab" aria-controls="nav-contact" aria-selected="false" style="color: #007BFF;cursor: pointer;" >Contact Us</a>
+        </div>
+ 
+        <img src="theme.png" alt="" style="height: 30px;width: 30px;margin-left: 10cm;background-color: black;cursor: pointer;" onclick="document.getElementById('light_theme').style.display ='block';document.getElementsByTagName('BODY')[0].style.backgroundColor='black';" title="Click here to switch to dark theme" id="dark_mode">
+      
+        <img src="light_theme.png" alt="" style="height: 30px;width: 50px;margin-left: 0cm;background-color: black;cursor: pointer;" onclick="document.getElementsByTagName('BODY')[0].style.backgroundColor='lightgrey';"  title="Click here to switch to light theme" id="light_mode">
+        <h1 style="float: right;font-family:cursive;color: white;margin-right: 2mm;font-size: 50px;" id="Dine_desk_signup">Dine Desk</h1>
+       
+
+      </nav>
+
+    <div id="next_step_">
+   
+        <p style="margin-left: 0cm;font-size: 20px;text-align: center;margin-top: 5px;">CLICK  <a href="Login_window.html" id="here"> here </a> to redirect to login page</p>
+    </div>
+
+    <br><br><br>  
+
+
+ 
+
+<fieldset class="rounded" id="fieldset" >
+        <form id="contactForm" action="" style="margin-left: 0.7cm;margin-top: 0.7cm;">
+            <div class="form-group">
+              <label for="exampleInputEmail1" style="color: white;margin-left: 2mm;">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" style="width: 500px;margin-left: 2mm;">
+              <small id="emailHelp" class="form-text text-muted" style="margin-left: 2mm;color: rgb(255, 255, 255) !important;">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" style="margin-left: 2mm;color: white">Password</label>
+              <input type="password" class="form-control" id="Pass" placeholder="Password" style="width: 500px;margin-left: 2mm;" required>
+            </div>
+           
+            <button type="submit" class="btn btn-primary" style="margin-left: 5.5cm;" id="signin" title="Click to sign-up" value="submit">Submit</button>
+        </form>
+</fieldset>
+
+
+<footer id="footer" style="padding: 0.1mm;">
+  <ul style="margin: 1cm;">
+   <h3 style="color: azure;margin-left: 1%;margin: 4mm;">About us</h3>
+  <a href="contact.html" style="text-decoration: none;"> <li style="color: white;">contact us</li></a>
+   <li style="color: white;">Sponsers and Tie-ups</li>
+   <li style="color: white;">Terms and Condition</li>
+
+  <fieldset style="background-color: rgb(182, 168, 168);float: right;margin-top: -2cm;position: inherit;height: 50px;padding: 1%;width: 750px;" id="newsletter">
+   <label for="text"><b> Subscribe to our news letter</b></label>
+   <input type="text" name="text" id="text" style="width: 400px;">
+   <button class="btn-primary">Subscribe</button>
+  </fieldset>
+
+
+
+ </footer>
+
+           <script type="module">
+           
+           document.getElementById("contactForm").addEventListener('submit',(event)=>{
+            event.preventDefault()
+           })   
+
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+            import { getDatabase } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+            import { getAuth, createUserWithEmailAndPassword,} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyBf_inD4Hqb2zqkmCuha69YEEgZ0EvSdDI",
+    authDomain: "canteen-live-status-65e71.firebaseapp.com",
+    databaseURL: "https://canteen-live-status-65e71-default-rtdb.firebaseio.com",
+    projectId: "canteen-live-status-65e71",
+    storageBucket: "canteen-live-status-65e71.appspot.com",
+    messagingSenderId: "427128725985",
+    appId: "1:427128725985:web:161d9f41d3e126af35b2a0",
+    measurementId: "G-YH01SPNTT2"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const database = getDatabase(app);
+            const auth= getAuth();
+            const next_step_ = document.getElementById('next_step_');
+            const form = document.getElementById('contactForm');
+
+            
+    
+    signin.addEventListener('click', (e)=>{
+    var email_ = document.getElementById('email').value;
+    var Pass_ = document.getElementById('Pass').value;
+
+
+    createUserWithEmailAndPassword(auth, email_, Pass_)
+  .then((userCredential) => {
+    // Signed in 
+    var user = userCredential.user;
+     alert('user created');
+     next_step_.style.display = 'block';
+     form.style.display = 'none';
+         // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(error.code);
+
+})}
+)
+
+
+function BgChange() {
+  document.getElementById("con").style.backgroundColor = "black";
+  document.getElementById("light_theme").style.display = 'block';
+}
+
+</script>
+
+</body>
+
+</div>
+</html>

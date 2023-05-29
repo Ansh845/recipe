@@ -1,0 +1,105 @@
+body{
+    background-image: url("good.jp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -5cm;
+    background-color: rgb(255, 255, 255);
+}
+
+#logo{
+    box-shadow: 0px 0px 30px red;
+}
+#email{
+    background-color: rgb(255, 255, 255);
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+    border: black 4px solid;
+box-shadow: 0px 0px 5px black;
+}
+
+
+#txtSearch {
+    width: 300px;
+    margin-top: 5cm;
+}
+#btn{
+    background-color: white;
+    border: black;
+}
+#fieldset{
+    justify-content: center;
+    margin-left: 27.5%;
+    margin-top: 7cm;
+    border-color: black;
+}
+#email{
+    border-bottom: 1px transparent solid;
+    border-top: 1px transparent solid;
+    border-right: 1px transparent solid;
+    border-left: white !important;
+}
+
+.recipe-title{
+    /* border: black 2px solid; */
+    width: 200px;
+    color: rgb(255, 255, 255);
+    height: 100px;
+    font-weight: 700;
+    justify-content: center;
+    display: flex;
+    flex-basis: 2cm;
+    font-size: 0.7cm;
+    margin-left: 20%;
+}
+
+.recipe-title:hover{
+    /* border: black 2px solid; */
+    width: 200px;
+    height: 100px;
+    justify-content: center;
+    display: flex;
+    
+}
+
+.recipe-image > img{
+    height: 200px !important;
+    width: 200px !important;
+    margin-left: 0mm;
+    margin-top: 0cm !important;
+}
+
+.recipe{
+    display: block;
+    background-color: #87d665;
+    margin-left: 5mm;
+    margin-top: 5mm;
+    height: 200px;
+    width: 400px;
+    overflow: auto;
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 5%;
+    padding: 4mm;
+
+}
+
+.view_more{
+    margin-top: 0.1cm;
+    text-decoration: underline;
+    background-color: rgb(185, 228, 196);
+    cursor: pointer ;
+    border-radius: 10%;
+    width: 50px;
+    justify-content: center;
+    margin-left: 41%;
+    align-items: center;
+}
+.view_more:hover
+{
+    background-color: rgb(240, 83, 83);
+}
+.recipe-text{
+    color: white !important;
+    font-size: 5mm;
+    font-weight: 600;
+    margin-top: 5mm;
+}

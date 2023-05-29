@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Recipes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="recipee_page.css">
+    <script src="recipe_page.js" defer></script>
+</head>
+<body>
+    
+    <nav class="navbar navbar-dark bg-dark" style="position: fixed;top:0px;width: 100%;z-index: 1;overflow: visible;background-color: green !important;">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist" style="z-index: 1;">
+          <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="index.html" role="tab" aria-controls="nav-home" aria-selected="true" style="font-weight: 1000 !important;color: white;">Home</a>
+          <a class="nav-item nav-link" id="nav-contact-tab"  href="Login_window.html" role="tab" aria-controls="nav-contact" aria-selected="false" style="font-weight: 1000 !important;color: white;">Login</a>
+          <a  class="nav-item nav-link " aria-controls="nav-contact" aria-selected="false" href="contact.html" style="color: white;cursor: pointer;font-weight: 1000 !important;">Contact Us</a>
+        </div>
+
+        <h1 style="float: right;font-family:cursive;color: white;margin-right: 2mm;font-size: 50px;" id="index_dd">TasteBytes</h1>
+       
+      </nav>
+
+
+      
+      <!-- <img src="brooke-lark-HlNcigvUi4Q-unsplash.jpg" alt="" height="100px" width="100px"> -->
+    
+    
+<span style="place-items: center;top: 3.2cm;position: absolute;margin-left: 42%;" id="logo">
+             <img src="logo.png" alt="not there" width="200px" height="200px" >
+</span>
+
+<fieldset class="rounded" id="fieldset" >
+    <form id="contactForm" action="" style="margin-left: 0.7cm;margin-top: 0.7cm;"> 
+        <div class="form-group">
+          <input type="text" id="email"  placeholder="Search for ingredients..." style="margin-top: 2cm;width: 500px;margin-left: 2mm;" autofocus>
+          <img src="green_search.png" alt="" height="20px" width="20px" style="position: absolute;left: 65%;top: 58%;">
+          <input type="submit" name="Find" value="Find" id="submit_me">
+        </div>
+       
+
+    </form>
+</fieldset>
+<br>
+<h2 style="margin-left: 5.7%;">	 Start with Chicken &#128513;</h2>
+<br>
+
+<div id="recipe-container" style="margin-left: 2%;margin-right: 2mm;float: inline-start;text-align: center;height: calc(100vh- var(--header-height));display: flex;justify-content: center;align-items: flex-start;flex-wrap: wrap;" class="rounded">
+<div class="recipe rounded" style="height: 300px;width: 300px;border: black 3px solid !important; ">
+    
+    <div class="recipe-title">My Recipe</div>
+    <div class="recipe-image" style="height: 210px;">
+ 
+        <img src="back2.jpg" alt="" style="height: 100px;width: 100px;">
+        </div>
+ 
+        <div class="recipe-text" >
+ 
+        <ul >
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        </ul>
+ 
+        </div>
+        </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script type="module">
+
+recipeContainer.innerHTML = " ";
+
+
+document.getElementById("contactForm").addEventListener('submit',(event)=>{
+    event.preventDefault()
+    const text = document.getElementById("email").value;
+        console.log(text);
+        loadRecipies(text);
+   })   
+
+   
+
+const appID = "b36ca911";
+const appKey = "3fe7c7af105a171c3f73908dff4075ad";
+const baseURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${appID}&app_key=${appKey}`;
+
+
+
+        
+function loadRecipies(type ="egg"){
+    recipeContainer.innerHTML = " ";
+    const url = baseURL + `&q=${type}`;
+    fetch(url)
+    .then((res) => res.json())
+    .then((data) => renderRecipies(data.hits))
+    
+  .catch((error) => console.log(error));  
+
+}
+
+loadRecipies();
+
+const getRecipeStepsStr =(ingredientLines = [])=>{
+    let str = "";
+    for(var step of ingredientLines){
+        str= str+ `<li>${step}</li>`
+    }
+    return str;
+}
+
+
+const renderRecipies= (recipeList =[])=>{
+recipeList.forEach((recipeObj) =>{
+      const { 
+        label : recipeTitle,
+         ingredientLines, 
+        image: recipeImage
+    }= recipeObj.recipe;
+    const recipeStepStr = getRecipeStepsStr(ingredientLines);
+   const htmlStr = `<div class="recipe">
+   <div class="recipe-title">${recipeTitle}</div>
+   <div class="recipe-image">
+
+       <img src="${recipeImage}" alt="" />
+       </div>
+
+       <div class="recipe-text">
+
+       <ul>
+       ${recipeStepStr}
+       </ul>
+
+       </div>
+       </div>
+   `;
+   recipeContainer.insertAdjacentHTML("beforeend",  htmlStr);     
+
+});
+};
+
+
+      </script>
+</body>
+</html>
+
+

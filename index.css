@@ -1,0 +1,27 @@
+body{
+    background-image: url('good.jpg');
+    background-size: cover;
+    overflow-y: scroll;
+    display: flex;
+    background-position-x: 0mm;
+    
+    background-position-y: -82mm;
+    background-repeat: no-repeat;
+}
+#contactForm{
+    background-color: rgb(252, 253, 252);
+    display: flexbox;
+    width: 400px;
+    padding: 5mm;
+    justify-content: center;
+    margin-right: 5%;
+    margin-left: 60%;
+    margin-top: 12%;
+    height: 375px;
+}
+#signin{
+    margin-top: 5%;
+    margin-left: 37%;
+    align-items: center;
+    justify-content: center;
+}
